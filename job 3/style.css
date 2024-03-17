@@ -1,0 +1,118 @@
+main {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section {
+  background-color: #88c1d0;
+  height: 100px;
+  flex: 1;
+  margin: 5px;
+}
+
+/* Media queries pour adapter les sections en fonction de la résolution */
+
+/* Pour les écrans de 1600px et plus */
+@media (min-width: 1600px) {
+  section {
+    height: 150px;
+  }
+}
+
+/* Pour les écrans entre 768px et 1599px */
+@media (min-width: 768px) and (max-width: 1599px) {
+  section {
+    height: 100px;
+  }
+
+  /* Chaque section prend 50% de la largeur */
+  section {
+    flex-basis: calc(50% - 10px);
+  }
+
+  /* Pour que les deux dernières sections soient placées côte à côte */
+  section:nth-child(3),
+  section:nth-child(4) {
+    flex-basis: calc(50% - 10px);
+  }
+}
+
+/* Pour les écrans de 767px et moins */
+@media (max-width: 767px) {
+  section {
+    height: 100px;
+  }
+
+  section {
+    flex-basis: 100%; /* Affichage en colonne, une section en dessous de l'autre */
+  }
+}
+header {
+  display: flex;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+}
+
+@media (max-width: 767px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+  }
+}
